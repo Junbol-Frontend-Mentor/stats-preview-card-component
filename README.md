@@ -52,12 +52,24 @@ This is a solution to the [Loopstudios landing page challenge on Frontend Mentor
 
 ### What I learned
 
-- Add an extra div for the hero image
+- Add an extra div for the hero image and push it to the far right with order: 1 on desktop view.
+
+```
+background-color: color('soft-violet');
+background-blend-mode: multiply;
 
 ```
 
+- BREAKE THROUGH DISCOVERY: To move the background image around
+
+```
+
+On mobiles:
+background-position-x: 0rem; //🚩✅ Moves the background image 5.5rem to the right from the right edge.
 
 
+On desktop:
+ background-position-x: -8.5rem; //🚩✅ Moves the background image 5.5rem to the right from the right edge.
 ```
 
 ### Continued development

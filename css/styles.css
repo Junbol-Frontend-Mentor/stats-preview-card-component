@@ -64,7 +64,7 @@ main {
   background-image: url("../assets/images/image-header-mobile.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position-x: 0rem;
   margin-bottom: 2rem;
   background-color: hsl(290, 93%, 63%);
   background-blend-mode: multiply;
@@ -175,9 +175,12 @@ main {
   .cardContainer__heroImage {
     width: 46%;
     height: 100%;
+    background-image: url("../assets/images/image-header-desktop.jpg");
     order: 1;
     border-radius: 0 15px 15px 0;
     margin-bottom: 0rem;
+    background-size: cover;
+    background-position-x: -8.5rem;
   }
   .dataContainer {
     width: 100%;
