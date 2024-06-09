@@ -141,37 +141,6 @@ main {
     }
   }
 
-  &__paymentBtn {
-    width: 15rem;
-    height: 3rem;
-    border-radius: 7px;
-    border-style: none;
-    color: color('white');
-    margin-bottom: 2rem;
-    cursor: pointer; // ✅ Ensure pointer cursor on hover
-    @include typography('Red Hat Display', 700, 1rem, 1.5, color('white'));
-    transition: transform 0.7s ease;
-    background-color: color('bright-blue');
-    //background-color: fuchsia;
-    &:hover {
-      background-color: color('brighter-blue');
-      transform: scale(1.1);
-    }
-  }
-  &__cancelBtn {
-    width: 8rem;
-    height: 2rem;
-    border-radius: 7px;
-    border-style: none;
-    cursor: pointer; // ✅ Ensure pointer cursor on hover
-    @include typography('Red Hat Display', 700, 1rem, 1.5, color('white'));
-    transition: transform 0.7s ease;
-    background-color: color('warning-dark-red');
-    &:hover {
-      background-color: color('warning-red');
-      transform: scale(1.1);
-    }
-  }
 }
 .annualPlanRow {
   width: 70%;
@@ -184,7 +153,7 @@ main {
   margin-bottom: 2rem;
   //background-color: chartreuse;
 
-  &__annualGrp {
+  &__dataGrp {
     width: 10rem;
     height: 3rem;
     display: flex;
@@ -192,42 +161,9 @@ main {
     //background-color: darkseagreen;
   }
 
-  &__musicNoteSymbol {
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    background-color: color('desaturated-blue');
-    //background-color: brown;
-    i {
-      color: color('dark-blue');
-    }
-  }
+ 
 
-  &__annualPlanContainer {
-    width: 6rem;
-    height: 3rem;
-    @include typography('Red Hat Display', 700, 1rem, 1.5, color('black'));
-    //background-color: blueviolet;
-  }
 
-  &__changeBtn {
-    width: 6rem;
-    height: 3rem;
-    border-style: none;
-    border-radius: 7px;
-    cursor: pointer; // ✅ Ensure pointer cursor on hover
-    @include typography('Red Hat Display', 700, 1rem, 1.5, color('white'));
-    background-color: color('desaturated-blue');
-    transition: transform 0.7s ease;
-    //background-color: darkgreen;
-    &:hover {
-      background-color: color('bright-blue');
-      transform: scale(1.1);
-    }
-  }
 }
 
 //------   FOOTER    ----------------
