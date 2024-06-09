@@ -25,7 +25,7 @@ $colors: (
   //-------- PRIMARY ----------------------------
   'very-dark-blue': hsl(233, 47%, 7%),
   'dark-desaturate': hsl(244, 38%, 16%),
-  'soft-violet': hsl(290, 90%, 69%),
+  'soft-violet': hsl(290, 93%, 63%),
   //-------- NEUTRAL ----------------------------
   'slightly-transparent-white-main-paragraph': hsla(0, 0%, 100%, 0.75),
   'slightly-transparent-white-stat-heading': hsla(0, 0%, 100%, 0.6),
@@ -95,7 +95,7 @@ main {
   margin-bottom: 2rem;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
   background-color: color('dark-desaturate');
- //background-color: indigo;
+  //background-color: indigo;
 
   &__mainContent {
     width: 90%;
@@ -200,7 +200,7 @@ main {
 @media (min-width: 768px) {
   .cardContainer {
     max-width: 55rem; // ✅ Adjusted max-width for desktop view
-    height: 30rem;// 🚩 to fix the issue of the heroImage to be able to use height: 100% I had to use height not min-height
+    height: 30rem; // 🚩 to fix the issue of the heroImage to be able to use height: 100% I had to use height not min-height
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -218,7 +218,7 @@ main {
 
     &__heroImage {
       width: 46%; // ✅ Adjusted width for desktop view
-      height: 100%;//❓ I dont understand why ths worked
+      height: 100%; //❓ I dont understand why ths worked
       order: 1;
       border-radius: 0 15px 15px 0;
       margin-bottom: 0rem;
