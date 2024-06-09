@@ -1,0 +1,266 @@
+// Importing Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+//------GENERAL SETTINGS -------------------------------
+
+// Universal reset also explicitly to all pseudo-elements
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body section,
+header {
+  padding: 0;
+  margin: 0;
+}
+
+// Define color variables
+$colors: (
+  //-------- PRIMARY ----------------------------
+  'pale-blue': hsl(225, 100%, 94%),
+  'bright-blue': hsl(245, 75%, 52%),
+  'brighter-blue': hsl(224, 94%, 49%),
+  //-------- NEUTRAL ----------------------------
+  'very-pale-blue': hsl(225, 100%, 98%),
+  'desaturated-blue': hsl(225, 32%, 71%),
+  'dark-blue': hsl(223, 47%, 23%),
+  //--------STANDARD ---------------------------
+  'white': hsl(0, 0%, 100%),
+  'purple-transp': hsla(276, 77%, 7%, 0.2),
+  'grey': hsl(0, 0%, 50%),
+  'black': hsl(0, 0%, 0%),
+  'black-transp': hsla(0, 0%, 0%, 0.6),
+  'warning-red': hsl(0, 100%, 50%),
+  'warning-dark-red': hsl(0, 94%, 41%),
+  'green': hsl(103, 99%, 31%)
+);
+
+// Defining gradient variables separately
+$gradientOne: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+
+// Function to retrieve colors
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+//font-family: "Josefin Sans", sans-serif;
+// Typography Mixin with parameters
+@mixin typography($font-family: 'Red Hat Display', $weight, $size, $line-height, $color) {
+  font-family: $font-family; // ✅ Fixed: Correctly use the parameter
+  font-weight: $weight;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
+  color: $color;
+}
+
+// Example usage
+/* .myClass {
+  @include typography("Red Hat Display", 700, 2rem, 1.5, #333); // ✅ Corrected example usage
+}
+
+.body-text {
+  @include typography("Alata", 400, 1rem, 1.5, #666);
+} */
+/* QUERY FOR MOBILE FIRST */
+html,
+body {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // This ensures that the total height is at least the height of the viewport
+  justify-content: center;
+  z-index: 0;
+  background-color: color('white');
+  //background-color: darkgreen;
+}
+
+//============= MAIN     ====================================
+
+
+
+main {
+  width: 100%;
+  flex: 1 0 auto; /* This allows the main content to grow and shrink but not shrink smaller than its content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-image: url('../assets/images/pattern-background-mobile.svg');
+  background-repeat: no-repeat;
+  background-size: contain; //🚩 with contain I managed to put the curve in the right location not with "cover"
+  //background-color: aqua;
+}
+
+.cardContainer {
+  width: 100%;
+  min-height: 45rem; /* Use min-height to accommodate varying content sizes */
+  display: flex;
+  flex-direction: column;
+  //justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+  background-color: color('very-pale-blue');
+
+  &__heroImage {
+    width: 100%;
+    height: 17rem;
+    border-radius: 15px 10px 0px 0px; //🚩 The trick was to add a separate div with this borders corners to match the parent
+    //this separate div is needed to the sibling orderSummary falls underneath.
+    background-image: url('../assets/images/illustration-hero.svg');
+    background-repeat: no-repeat;
+    background-size: cover; //🚩 with contain I managed to put the curve in the right location not with "cover"
+    background-position: center; //🚩 Use all these sets to center the image
+    margin-bottom: 2rem;
+    background-color: bisque;
+  }
+
+  &__orderSummary {
+    width: 80%;
+    height: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    //background-color: cornflowerblue;
+    h1 {
+      @include typography('Red Hat Display', 700, 2.5rem, 1.5, color('bright-blue'));
+    }
+    p {
+      @include typography('Red Hat Display', 500, 1rem, 1.5, color('black'));
+    }
+  }
+
+  &__paymentBtn {
+    width: 15rem;
+    height: 3rem;
+    border-radius: 7px;
+    border-style: none;
+    color: color('white');
+    margin-bottom: 2rem;
+    cursor: pointer; // ✅ Ensure pointer cursor on hover
+    @include typography('Red Hat Display', 700, 1rem, 1.5, color('white'));
+    transition: transform 0.7s ease;
+    background-color: color('bright-blue');
+    //background-color: fuchsia;
+    &:hover {
+      background-color: color('brighter-blue');
+      transform: scale(1.1);
+    }
+  }
+  &__cancelBtn {
+    width: 8rem;
+    height: 2rem;
+    border-radius: 7px;
+    border-style: none;
+    cursor: pointer; // ✅ Ensure pointer cursor on hover
+    @include typography('Red Hat Display', 700, 1rem, 1.5, color('white'));
+    transition: transform 0.7s ease;
+    background-color: color( 'warning-dark-red');
+    &:hover {
+      background-color: color('warning-red');
+      transform: scale(1.1);
+    }
+  }
+}
+.annualPlanRow {
+  width: 70%;
+  height: 6rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  //background-color: chartreuse;
+
+  &__annualGrp {
+    width: 10rem;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    //background-color: darkseagreen;
+  }
+
+  &__musicNoteSymbol {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: color('desaturated-blue');
+    //background-color: brown;
+    i {
+      color: color('dark-blue');
+    }
+  }
+
+  &__annualPlanContainer {
+    width: 6rem;
+    height: 3rem;
+    @include typography('Red Hat Display', 700, 1rem, 1.5, color('black'));
+    //background-color: blueviolet;
+  }
+
+  &__changeBtn {
+    width: 6rem;
+    height: 3rem;
+    border-style: none;
+    border-radius: 7px;
+    cursor: pointer; // ✅ Ensure pointer cursor on hover
+    @include typography('Red Hat Display', 700, 1rem, 1.5, color('white'));
+    background-color: color('desaturated-blue');
+    transition: transform 0.7s ease;
+    //background-color: darkgreen;
+    &:hover {
+      background-color: color('bright-blue');
+      transform: scale(1.1);
+    }
+  }
+
+
+}
+
+//------   FOOTER    ----------------
+
+.attribution {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  top: 12rem;
+  padding: 0.5rem;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 3rem; // Keeps the footer at the bottom but only after all other content
+  color: color('grey');
+  //background-color: aqua;
+}
+.attribution a {
+  color: color('black');
+  text-decoration: none;
+}
+
+//------ MEDIA QUERY FOR DESKTOPS AND TABLETS ----------------
+
+ @media (min-width: 768px) {
+
+  main {
+    max-width: 100%;
+    background-image: url('../assets/images/pattern-background-desktop.svg');
+    background-repeat: no-repeat;
+    background-size: contain; //🚩 with contain I managed to put the curve in the right location not with "cover"
+  }
+  .cardContainer {
+  max-width: 30rem;
+  min-height: 45rem; /* Use min-height to accommodate varying content sizes */
+  }
+}

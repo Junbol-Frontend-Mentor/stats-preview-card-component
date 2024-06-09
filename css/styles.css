@@ -1,0 +1,227 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body section,
+header {
+  padding: 0;
+  margin: 0;
+}
+
+/* .myClass {
+  @include typography("Red Hat Display", 700, 2rem, 1.5, #333); // ✅ Corrected example usage
+}
+
+.body-text {
+  @include typography("Alata", 400, 1rem, 1.5, #666);
+} */
+/* QUERY FOR MOBILE FIRST */
+html,
+body {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  z-index: 0;
+  background-color: hsl(0, 0%, 100%);
+}
+
+main {
+  width: 100%;
+  flex: 1 0 auto; /* This allows the main content to grow and shrink but not shrink smaller than its content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-image: url("../assets/images/pattern-background-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.cardContainer {
+  width: 100%;
+  min-height: 45rem; /* Use min-height to accommodate varying content sizes */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+  background-color: hsl(225, 100%, 98%);
+}
+.cardContainer__heroImage {
+  width: 100%;
+  height: 17rem;
+  border-radius: 15px 10px 0px 0px;
+  background-image: url("../assets/images/illustration-hero.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 2rem;
+  background-color: bisque;
+}
+.cardContainer__orderSummary {
+  width: 80%;
+  height: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+.cardContainer__orderSummary h1 {
+  font-family: "Red Hat Display";
+  font-weight: 700;
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1.5;
+  color: hsl(245, 75%, 52%);
+}
+.cardContainer__orderSummary p {
+  font-family: "Red Hat Display";
+  font-weight: 500;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: hsl(0, 0%, 0%);
+}
+.cardContainer__paymentBtn {
+  width: 15rem;
+  height: 3rem;
+  border-radius: 7px;
+  border-style: none;
+  color: hsl(0, 0%, 100%);
+  margin-bottom: 2rem;
+  cursor: pointer;
+  font-family: "Red Hat Display";
+  font-weight: 700;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: hsl(0, 0%, 100%);
+  transition: transform 0.7s ease;
+  background-color: hsl(245, 75%, 52%);
+}
+.cardContainer__paymentBtn:hover {
+  background-color: hsl(224, 94%, 49%);
+  transform: scale(1.1);
+}
+.cardContainer__cancelBtn {
+  width: 8rem;
+  height: 2rem;
+  border-radius: 7px;
+  border-style: none;
+  cursor: pointer;
+  font-family: "Red Hat Display";
+  font-weight: 700;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: hsl(0, 0%, 100%);
+  transition: transform 0.7s ease;
+  background-color: hsl(0, 94%, 41%);
+}
+.cardContainer__cancelBtn:hover {
+  background-color: hsl(0, 100%, 50%);
+  transform: scale(1.1);
+}
+
+.annualPlanRow {
+  width: 70%;
+  height: 6rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+.annualPlanRow__annualGrp {
+  width: 10rem;
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+.annualPlanRow__musicNoteSymbol {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: hsl(225, 32%, 71%);
+}
+.annualPlanRow__musicNoteSymbol i {
+  color: hsl(223, 47%, 23%);
+}
+.annualPlanRow__annualPlanContainer {
+  width: 6rem;
+  height: 3rem;
+  font-family: "Red Hat Display";
+  font-weight: 700;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: hsl(0, 0%, 0%);
+}
+.annualPlanRow__changeBtn {
+  width: 6rem;
+  height: 3rem;
+  border-style: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-family: "Red Hat Display";
+  font-weight: 700;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: hsl(0, 0%, 100%);
+  background-color: hsl(225, 32%, 71%);
+  transition: transform 0.7s ease;
+}
+.annualPlanRow__changeBtn:hover {
+  background-color: hsl(245, 75%, 52%);
+  transform: scale(1.1);
+}
+
+.attribution {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  top: 12rem;
+  padding: 0.5rem;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: hsl(0, 0%, 50%);
+}
+
+.attribution a {
+  color: hsl(0, 0%, 0%);
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  main {
+    max-width: 100%;
+    background-image: url("../assets/images/pattern-background-desktop.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .cardContainer {
+    max-width: 30rem;
+    min-height: 45rem; /* Use min-height to accommodate varying content sizes */
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
