@@ -35,8 +35,8 @@ This is a solution to the [Loopstudios landing page challenge on Frontend Mentor
 
 ### Links
 
-- Solution URL: (https://github.com/Junbol-Frontend-Mentor/order-summary-component)
-- Live Site URL: (https://junbol-frontend-mentor.github.io/order-summary-component/)
+- Solution URL: (https://github.com/Junbol-Frontend-Mentor/stats-preview-card-component/)
+- Live Site URL: (https://junbol-frontend-mentor.github.io/stats-preview-card-component/)
 
 ## My process
 
